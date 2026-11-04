@@ -1,0 +1,15 @@
+# Working files from the St Ives study (real place, not part of the published app)
+assets/st-ives-*
+assets/osm-tiles/
+render-st-ives-base.mjs
+
+# Early design concepts
+assets/lmr-*.jpg
+
+# Internal notes
+docs/
+
+node_modules/
+.DS_Store
+Thumbs.db
+desktop.ini

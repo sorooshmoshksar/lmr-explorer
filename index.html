@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LMR Explorer · Banksia Creek (hypothetical) · NSW Low and Mid-Rise Housing</title>
+  <meta name="description" content="Educational interactive map explaining the NSW Low and Mid-Rise Housing (LMR) policy using a hypothetical suburb.">
+  <link rel="stylesheet" href="styles.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three/three.module.js",
+        "three/addons/": "./vendor/three/addons/"
+      }
+    }
+  </script>
+</head>
+<body class="panel-open">
+  <header class="topbar">
+    <button id="btn-sidebar" class="icon-btn only-mobile" aria-label="Layers and menu">☰</button>
+    <div class="brand">
+      <span class="logo">LMR</span>
+      <div>
+        <h1>Low &amp; Mid-Rise Housing Explorer <span class="badge-hypo" title="Not a real place">Hypothetical suburb</span></h1>
+        <p>Banksia Creek NSW · an invented suburb for learning, not a real place</p>
+      </div>
+    </div>
+    <div class="search">
+      <input id="search" type="search" placeholder="Search types, constraints, topics or an address…" autocomplete="off" aria-label="Search">
+      <div id="search-results" hidden></div>
+    </div>
+    <nav class="top-actions">
+      <button id="btn-learn" class="btn ghost">Learning Centre</button>
+      <button id="btn-compare" class="btn ghost">Compare types</button>
+      <button id="btn-glossary" class="btn ghost">Glossary</button>
+      <button id="btn-tour" class="btn primary"><span class="lbl-long">Guided tour</span><span class="lbl-short">Tour</span></button>
+      <button id="btn-sn" class="btn sn-top"><img src="assets/brand/sn-mark-white.png" alt="" /><span class="lbl-long">Get site advice</span><span class="lbl-short">Site advice</span></button>
+    </nav>
+  </header>
+
+  <aside id="sidebar" aria-label="Layers and building types"></aside>
+
+  <main id="map">
+    <div id="beforeafter" class="segmented" role="group" aria-label="Before and after">
+      <button data-mode="before">Before LMR</button>
+      <button data-mode="after" class="active">Today</button>
+      <button data-mode="split">Split</button>
+    </div>
+    <div id="split-handle" hidden><span>Before</span><i></i><span>Today</span></div>
+    <div id="map-tools" aria-label="Map controls">
+      <button id="tool-zoom-in" title="Zoom in">+</button>
+      <button id="tool-zoom-out" title="Zoom out">−</button>
+      <button id="tool-rot-l" title="Rotate 90° left">⟲</button>
+      <button id="tool-rot-r" title="Rotate 90° right">⟳</button>
+      <button id="tool-plan" title="Toggle plan / 3D view">Plan</button>
+      <button id="tool-centre" title="Zoom to the town centre">◎</button>
+      <button id="tool-home" title="Reset view">⌂</button>
+    </div>
+    <div id="legend" hidden></div>
+    <div id="tooltip" hidden></div>
+    <div id="tour-card" hidden></div>
+    <div class="watermark"><b>Hypothetical suburb</b> · not a real place · for education only</div>
+    <div class="north" title="North">N<i></i></div>
+  </main>
+
+  <aside id="panel" aria-label="Information">
+    <button class="panel-close" aria-label="Close panel" onclick="document.body.classList.remove('panel-open')">×</button>
+    <div id="panel-body"></div>
+  </aside>
+
+  <footer class="disclaimer">
+    <b><i class="lbl-long">Hypothetical suburb · Educational tool only · Not planning advice.</i><i class="lbl-short">Hypothetical · Not planning advice</i></b>
+    <span id="disclaimer-text"></span>
+    <button id="btn-disclaimer" class="link"><i class="lbl-long">Full disclaimer</i><i class="lbl-short">Disclaimer</i></button>
+    <button id="footer-sn" class="link"><span class="lbl-long">Presented by</span><img src="assets/brand/sn-mark-black.png" alt="" /><b>SN Architects</b></button>
+  </footer>
+
+  <div id="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <header><h2 id="modal-title"></h2><button id="modal-close" aria-label="Close">×</button></header>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <div id="loading">
+    <div class="loader">
+      <span class="logo big">LMR</span>
+      <p>Building Banksia Creek</p>
+      <small id="loading-status">Loading…</small>
+    </div>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
